@@ -21,11 +21,6 @@ class Zero_Product(models.Model):
     sugar = models.CharField(max_length=50, default=0, verbose_name="당류 (g)")  # 당류
     Sugar_alcohol = models.CharField(max_length=50, default=0, verbose_name="당알콜 (g)")  # 당알콜
 
-    # 당 관련 주의 성분
-    maltitol = models.CharField(max_length=50, default=0, verbose_name="말티톨 (g)")  # 말티톨
-    maltitol_syrup = models.CharField(max_length=50, default=0, verbose_name="말티톨 시럽 (g)")  # 말티톨 시럽
-    glucose_syrup = models.CharField(max_length=50, default=0, verbose_name="물엿 (g)")  # 물엿
-
     # 혈당 지표
     GI = models.CharField(max_length=50, default=0, verbose_name="GI지수")  # GI 지수
     GL = models.CharField(max_length=50, default=0, verbose_name="GL지수")  # GL 지수

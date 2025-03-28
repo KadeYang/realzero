@@ -44,17 +44,17 @@ def product_detail(request, id):
     materials_list = [item.strip() for item in product.Raw_materials.split(',') if item.strip()]
 
     # ✅ 혈당 주의 성분 포함 여부 count
-    warning_fields = [
-        product.maltitol,
-        product.maltitol_syrup,
-        product.glucose_syrup,
-        product.Sugar_alcohol
-    ]
-    warnings_count = sum(1 for item in warning_fields if item and item.strip() != '0' and item.strip().lower() != 'null')
+    # warning_fields = [
+    #     product.maltitol,
+    #     product.maltitol_syrup,
+    #     product.glucose_syrup,
+    #     product.Sugar_alcohol
+    # ]
+    # warnings_count = sum(1 for item in warning_fields if item and item.strip() != '0' and item.strip().lower() != 'null')
 
     return render(request, 'homepage/product_detail.html', {
         'product': product,
         'warning': warning,
         'materials_list': materials_list,
-        'warnings_count': warnings_count,  # 👉 템플릿에서 사용할 수 있게 추가
+        # 'warnings_count': warnings_count,  # 👉 템플릿에서 사용할 수 있게 추가
     })
