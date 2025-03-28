@@ -26,7 +26,8 @@ def search(request):
 
     return render(request, 'homepage/search_results.html', {
         'query': query,
-        'results': results
+        'results': results,
+        'count': results.count()
     })
 
 def product_detail(request, id):
