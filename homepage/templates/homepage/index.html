@@ -1,0 +1,50 @@
+{% extends "homepage/base.html" %}
+{% block title %}홈{% endblock %}
+
+{% block content %}
+
+<!-- 신제품 -->
+<section class="mb-4 position-relative">
+  <h5 class="font-weight-bold mb-3">새로 출시했어요!</h5>
+  <div class="card custom-card position-relative">
+    <span class="card-badge">1/5</span>
+    <div class="card-body text-center text-muted">
+      신제품 이미지
+    </div>
+  </div>
+</section>
+
+<!-- 많이 찾아봤어요 -->
+<section class="mb-4 position-relative">
+  <h5 class="font-weight-bold mb-3">많이 찾아봤어요!</h5>
+  <div class="card custom-card position-relative">
+    <span class="card-badge">1/5</span>
+    <div class="card-body text-center text-muted">
+      랭킹 상위 제품
+    </div>
+  </div>
+</section>
+
+<!-- 추천 많은 게시글 -->
+<section class="mb-4">
+  <h5 class="font-weight-bold mb-3">추천 많은 게시글</h5>
+  <div class="list-group">
+    {% for post in posts %}
+    <div class="custom-post-item mb-3">
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <p class="font-weight-bold mb-1">{{ post.title }}</p>
+          <small class="text-muted">{{ post.author }} · {{ post.timestamp|timesince }} 전</small>
+        </div>
+        <span class="ml-3 text-warning font-weight-bold">👍 {{ post.likes }}</span>
+      </div>
+    </div>
+    {% empty %}
+    <div class="custom-post-item text-center text-muted">
+      게시글이 없습니다.
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% endblock %}
